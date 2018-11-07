@@ -1,8 +1,12 @@
-<h1>{{title}}</h1>
 <nav>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/courses">Courses</a>
-  <a routerLink="/instructors">Instructors</a>
-  <a routerLink="/students">Students</a>
-</nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">{{title}}</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/courses">Courses</a></li>
+        <li><a routerLink="/instructors">Instructors</a></li>
+        <li><a routerLink="/students">Students</a></li>
+      </ul>
+    </div>
+  </nav>
 <router-outlet></router-outlet>

@@ -1,6 +1,11 @@
-<h2>Students</h2>
-<ul class="students">
-  <li *ngFor="let student of students">
-      {{student.attributes.name}}
-  </li>
-</ul>
+<ul class="collection with-header">
+    <li class="collection-header"><h4>Students</h4></li>
+    <li class="collection-item" *ngFor="let student of students">
+      <div>
+          {{student.attributes.name}}
+          <a class="secondary-content" routerLink="/students/{{student.id}}">
+              <i class="material-icons">send</i>
+          </a>
+      </div>
+    </li>
+  </ul>

@@ -1,9 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from './../../services/student.service';
 import { Student } from 'src/app/models/student';
 import { JsonObject } from './../../models/json-object';
-
 
 @Component({
   selector: 'app-students',
@@ -33,6 +31,5 @@ export class StudentsComponent implements OnInit {
         console.error( error );
 
     }
-
-}
+  }
 }

@@ -23,23 +23,28 @@ export class StudentService {
    }
 
   public async getStudents<T>(): Promise<T> {
-
     try {
-
-        const axiosResponse = await this.axiosClient.request<T>({
+        const axiosResponse = await axios.request<T>({
             method: 'get',
             url: this.studentsURL
         });
-
         return( axiosResponse.data );
-
     } catch ( error ) {
-
         return( Promise.reject( this.handleError( error ) ) );
-
     }
+  }
 
-}
+  public async getStudent<T>(id: string): Promise<T> {
+    try {
+        const axiosResponse = await this.axiosClient.request<T>({
+            method: 'get',
+            url: `${this.studentsURL}/${id}?include=field_courses`
+        });
+        return( axiosResponse.data );
+    } catch ( error ) {
+        return( Promise.reject( this.handleError( error ) ) );
+    }
+  }
 
   /**
    * Handle Http operation that failed.
