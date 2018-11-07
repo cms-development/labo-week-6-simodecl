@@ -1,26 +1,15 @@
-import { JsonObject } from './../models/json-object';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import axios from 'axios';
-import { AxiosInstance } from 'axios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  public jsonObject: JsonObject;
-  private axiosClient: AxiosInstance;
   private studentsURL = 'http://localhost/jsonapi/student/student';
 
-  constructor() {
-    this.axiosClient = axios.create({
-      timeout: 3000,
-      headers: {
-          'X-Initialized-At': Date.now().toString()
-      }
-  });
-   }
+  constructor() {}
 
   public async getStudents<T>(): Promise<T> {
     try {
@@ -36,7 +25,7 @@ export class StudentService {
 
   public async getStudent<T>(id: string): Promise<T> {
     try {
-        const axiosResponse = await this.axiosClient.request<T>({
+        const axiosResponse = await axios.request<T>({
             method: 'get',
             url: `${this.studentsURL}/${id}?include=field_courses`
         });

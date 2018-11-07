@@ -11,6 +11,7 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
 import { HomeComponent } from './components/home/home.component';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
+import { StudentEditComponent } from './components/student-edit/student-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
     StudentsComponent,
     StudentDetailComponent,
     HomeComponent,
+    StudentEditComponent,
   ],
   imports: [
     BrowserModule,

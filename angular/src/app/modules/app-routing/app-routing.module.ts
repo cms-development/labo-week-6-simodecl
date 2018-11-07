@@ -9,8 +9,9 @@ import { CourseDetailComponent } from '../../components/course-detail/course-det
 import { InstructorsComponent } from './../../components/instructors/instructors.component';
 import { InstructorDetailComponent } from './../../components/instructor-detail/instructor-detail.component';
 
-import { StudentDetailComponent } from './../../components/student-detail/student-detail.component';
 import { StudentsComponent } from './../../components/students/students.component';
+import { StudentDetailComponent } from './../../components/student-detail/student-detail.component';
+import { StudentEditComponent } from './../../components/student-edit/student-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'instructors', component: InstructorsComponent },
   { path: 'instructors/:id', component: InstructorDetailComponent },
   { path: 'students', component: StudentsComponent },
-  { path: 'students/:id', component: StudentDetailComponent }
+  { path: 'students/:id', component: StudentDetailComponent },
+  { path: 'students/:id/edit', component: StudentEditComponent }
 ];
 
 @NgModule({

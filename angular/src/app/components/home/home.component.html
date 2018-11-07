@@ -1,3 +1,17 @@
-<p>
-  home works!
-</p>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Username" id="username" type="text" class="validate" #username >
+        <label for="username">Username</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate" #password>
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <button (click)="login(username.value,password.value)" type="button" class="btn waves-effect waves-light">Submit</button>
+  </form>
+</div>
