@@ -1,0 +1,77 @@
+add course entities:
+  title: 'Create new Course entities'
+
+administer course entities:
+  title: 'Administer Course entities'
+  description: 'Allow to access the administration form to configure Course entities.'
+  restrict access: true
+
+delete course entities:
+  title: 'Delete Course entities'
+
+edit course entities:
+  title: 'Edit Course entities'
+
+access course overview:
+  title: 'Access the Course overview page'
+
+view published course entities:
+  title: 'View published Course entities'
+
+view unpublished course entities:
+  title: 'View unpublished Course entities'
+
+view all course revisions:
+  title: 'View all Course revisions'
+
+revert all course revisions:
+  title: 'Revert all Course revisions'
+  description: 'Role requires permission <em>view Course revisions</em> and <em>edit rights</em> for course entities in question or <em>administer course entities</em>.'
+
+delete all course revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Course revisions</em> and <em>delete rights</em> for course entities in question or <em>administer course entities</em>.'
+add student entities:
+  title: 'Create new Student entities'
+
+administer student entities:
+  title: 'Administer Student entities'
+  description: 'Allow to access the administration form to configure Student entities.'
+  restrict access: true
+
+delete student entities:
+  title: 'Delete Student entities'
+
+edit student entities:
+  title: 'Edit Student entities'
+
+access student overview:
+  title: 'Access the Student overview page'
+
+view published student entities:
+  title: 'View published Student entities'
+
+view unpublished student entities:
+  title: 'View unpublished Student entities'
+add instructor entities:
+  title: 'Create new Instructor entities'
+
+administer instructor entities:
+  title: 'Administer Instructor entities'
+  description: 'Allow to access the administration form to configure Instructor entities.'
+  restrict access: true
+
+delete instructor entities:
+  title: 'Delete Instructor entities'
+
+edit instructor entities:
+  title: 'Edit Instructor entities'
+
+access instructor overview:
+  title: 'Access the Instructor overview page'
+
+view published instructor entities:
+  title: 'View published Instructor entities'
+
+view unpublished instructor entities:
+  title: 'View unpublished Instructor entities'
