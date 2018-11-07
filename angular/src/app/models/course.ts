@@ -1,3 +1,11 @@
 export class Course {
-  Name: string;
+  id: number;
+  type = 'course--course';
+  attributes: Attributes;
 }
+
+export class Attributes {
+  name: string;
+  field_academic_institution: string;
+}
+
