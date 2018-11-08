@@ -48,6 +48,30 @@ export class StudentService {
     }
   }
 
+  public async postStudent<T>(body: Object): Promise<T> {
+    try {
+        const axiosResponse = await axios.request<T>({
+            method: 'post',
+            url: this.studentsURL,
+            data: body
+        });
+        return( axiosResponse.data );
+    } catch ( error ) {
+        return( Promise.reject( this.handleError( error ) ) );
+    }
+  }
+
+  public async deleteStudent<T>(id: string): Promise<T> {
+    try {
+        const axiosResponse = await axios.request<T>({
+            method: 'delete',
+            url: `${this.studentsURL}/${id}`
+        });
+        return( axiosResponse.data );
+    } catch ( error ) {
+        return( Promise.reject( this.handleError( error ) ) );
+    }
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

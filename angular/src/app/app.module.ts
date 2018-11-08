@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { StudentEditComponent } from './components/student-edit/student-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
+import { StudentDeleteComponent } from './components/student-delete/student-delete.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { StudentCreateComponent } from './components/student-create/student-crea
     HomeComponent,
     StudentEditComponent,
     StudentCreateComponent,
+    StudentDeleteComponent,
   ],
   imports: [
     BrowserModule,

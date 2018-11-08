@@ -3,6 +3,7 @@
     <div class="card red lighten-3">
       <div class="card-content white-text">
         <span class="card-title">{{student.attributes.name}}</span>
+        <div>First name: {{student.attributes.field_first_name_student}}</div>
         <ul class="courses" *ngIf="courses">
           <div class="bold">Courses:</div>
           <li *ngFor="let course of courses">
@@ -11,8 +12,8 @@
         </ul>
       </div>
       <div class="card-action">
-        <button class="btn red lighten-2 white-text" (click)="goEdit()">Edit</button>
-        <button class="btn red lighten-1 white-text" (click)="goEdit()">Delete</button>
+        <button class="btn red lighten-2 white-text waves-effect waves-light" (click)="goEdit()">Edit</button>
+        <button class="btn red lighten-1 white-text waves-effect waves-light" (click)="goDelete()">Delete</button>
       </div>
     </div>
   </div>

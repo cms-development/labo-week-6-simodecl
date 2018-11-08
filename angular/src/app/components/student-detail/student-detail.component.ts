@@ -41,4 +41,8 @@ export class StudentDetailComponent implements OnInit {
   goEdit(): void {
     this.router.navigate([`${this.router.url}/edit`]);
   }
+
+  goDelete(): void {
+    this.router.navigate([`${this.router.url}/delete`]);
+  }
 }

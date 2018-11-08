@@ -1,3 +1,4 @@
+import { StudentDeleteComponent } from './../../components/student-delete/student-delete.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -24,9 +25,10 @@ const routes: Routes = [
   { path: 'instructors', component: InstructorsComponent },
   { path: 'instructors/:id', component: InstructorDetailComponent },
   { path: 'students', component: StudentsComponent },
-  { path: 'students/create', component: StudentCreateComponent },
+  { path: 'students/create', component: StudentCreateComponent, canActivate: [AuthGuard] },
   { path: 'students/:id', component: StudentDetailComponent },
-  { path: 'students/:id/edit', component: StudentEditComponent, canActivate: [AuthGuard] }
+  { path: 'students/:id/edit', component: StudentEditComponent, canActivate: [AuthGuard] },
+  { path: 'students/:id/delete', component: StudentDeleteComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

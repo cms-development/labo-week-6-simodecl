@@ -1,9 +1,15 @@
-<h5>Edit article</h5>
 <div class="row" *ngIf="student">
   <div class="col s12 m6 offset-m3">
     <div class="card red lighten-3">
       <div class="card-content white-text">
-        <input type="text" value="{{ student.attributes.name }}" name="name" class="card-title" [(ngModel)]="student.attributes.name">
+        <div class="input-field">
+          <input type="text" value="{{ student.attributes.name }}" name="name" class="card-title" [(ngModel)]="student.attributes.name">
+          <label class="white-text active" for="name">Name</label>
+        </div>
+        <div class="input-field">
+          <input type="text" value="{{ student.attributes.field_first_name_student }}" name="field_first_name_student" [(ngModel)]="student.attributes.field_first_name_student">
+          <label class="white-text active" for="field_first_name_student">First name</label>
+        </div>
         <ul class="courses" *ngIf="courses">
           <div class="bold">Courses:</div>
           <li *ngFor="let course of courses">
@@ -12,7 +18,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <button class="btn red lighten-2 white-text" (click)="patchStudent()">Update</button>
+        <button class="btn red lighten-2 white-text waves-effect waves-light" (click)="patchStudent()">Update</button>
       </div>
     </div>
   </div>

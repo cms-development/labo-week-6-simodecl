@@ -1,11 +1,16 @@
-<ul class="collection with-header">
+<div class="main">
+  <ul class="collection with-header">
     <li class="collection-header"><h4>Students</h4></li>
     <li class="collection-item" *ngFor="let student of students">
       <div>
           {{student.attributes.name}}
           <a class="secondary-content" routerLink="/students/{{student.id}}">
-              <i class="material-icons">send</i>
+              <i class="material-icons red-text">send</i>
           </a>
       </div>
     </li>
   </ul>
+  <a class="createStudent btn red lighten-2 waves-effect waves-light" routerLink="/students/create">
+    Create new student
+  </a>
+</div>
