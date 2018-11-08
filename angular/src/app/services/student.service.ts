@@ -35,6 +35,19 @@ export class StudentService {
     }
   }
 
+  public async patchStudent<T>(id: string, body: Object): Promise<T> {
+    try {
+        const axiosResponse = await axios.request<T>({
+            method: 'patch',
+            url: `${this.studentsURL}/${id}?include=field_courses`,
+            data: body
+        });
+        return( axiosResponse.data );
+    } catch ( error ) {
+        return( Promise.reject( this.handleError( error ) ) );
+    }
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

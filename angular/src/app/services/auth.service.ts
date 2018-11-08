@@ -36,6 +36,35 @@ export class AuthService {
     };
   }
 
+  public async refreshLogin<T>(): Promise<T> {
+    try {
+      const refreshData = {
+        refresh_token: localStorage.getItem('refresh_token'),
+        client_id: '671c1a41-66db-48af-baac-1c81b0392dea',
+        client_secret: 'secret',
+        grant_type: 'refresh_token'
+      };
+      const formData = new FormData();
+      for (const key of Object.keys(refreshData)) {
+        formData.append(key, refreshData[key]);
+      }
+      const axiosResponse = await axios.request<T>({
+          method: 'post',
+          url: this.tokenURL,
+          data: formData
+      });
+      return( axiosResponse.data );
+    } catch ( error ) {
+        return( Promise.reject( this.handleError( error ) ) );
+    }
+  }
+
+  getToken(): string {
+    const token = localStorage.getItem('access_token');
+
+    return token;
+  }
+
   public isAuthenticated(): boolean {
 
     const token = localStorage.getItem('access_token');

@@ -1,3 +1,19 @@
-<p>
-  student-edit works!
-</p>
+<h5>Edit article</h5>
+<div class="row" *ngIf="student">
+  <div class="col s12 m6 offset-m3">
+    <div class="card red lighten-3">
+      <div class="card-content white-text">
+        <input type="text" value="{{ student.attributes.name }}" name="name" class="card-title" [(ngModel)]="student.attributes.name">
+        <ul class="courses" *ngIf="courses">
+          <div class="bold">Courses:</div>
+          <li *ngFor="let course of courses">
+              {{course.attributes.name}}
+          </li>
+        </ul>
+      </div>
+      <div class="card-action">
+        <button class="btn red lighten-2 white-text" (click)="patchStudent()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Course } from './../../models/course';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from './../../services/student.service';
 import { Student } from 'src/app/models/student';
 import { JsonObject } from './../../models/json-object';
@@ -17,7 +17,8 @@ export class StudentDetailComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -35,5 +36,9 @@ export class StudentDetailComponent implements OnInit {
     } catch ( error ) {
       console.error( error );
     }
+  }
+
+  goEdit(): void {
+    this.router.navigate([`${this.router.url}/edit`]);
   }
 }
