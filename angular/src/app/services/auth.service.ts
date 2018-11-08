@@ -35,4 +35,15 @@ export class AuthService {
       return of(result as T);
     };
   }
+
+  public isAuthenticated(): boolean {
+
+    const token = localStorage.getItem('access_token');
+
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -29,7 +30,9 @@ import { StudentEditComponent } from './components/student-edit/student-edit.com
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

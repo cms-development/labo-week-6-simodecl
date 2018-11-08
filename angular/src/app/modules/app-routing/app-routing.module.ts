@@ -12,6 +12,7 @@ import { InstructorDetailComponent } from './../../components/instructor-detail/
 import { StudentsComponent } from './../../components/students/students.component';
 import { StudentDetailComponent } from './../../components/student-detail/student-detail.component';
 import { StudentEditComponent } from './../../components/student-edit/student-edit.component';
+import { AuthGuardService as AuthGuard } from './../../services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'instructors/:id', component: InstructorDetailComponent },
   { path: 'students', component: StudentsComponent },
   { path: 'students/:id', component: StudentDetailComponent },
-  { path: 'students/:id/edit', component: StudentEditComponent }
+  { path: 'students/:id/edit', component: StudentEditComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
