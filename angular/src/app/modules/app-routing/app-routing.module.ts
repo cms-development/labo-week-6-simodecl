@@ -12,6 +12,8 @@ import { InstructorDetailComponent } from './../../components/instructor-detail/
 import { StudentsComponent } from './../../components/students/students.component';
 import { StudentDetailComponent } from './../../components/student-detail/student-detail.component';
 import { StudentEditComponent } from './../../components/student-edit/student-edit.component';
+import { StudentCreateComponent } from './../../components/student-create/student-create.component';
+
 import { AuthGuardService as AuthGuard } from './../../services/auth-guard.service';
 
 const routes: Routes = [
@@ -22,6 +24,7 @@ const routes: Routes = [
   { path: 'instructors', component: InstructorsComponent },
   { path: 'instructors/:id', component: InstructorDetailComponent },
   { path: 'students', component: StudentsComponent },
+  { path: 'students/create', component: StudentCreateComponent },
   { path: 'students/:id', component: StudentDetailComponent },
   { path: 'students/:id/edit', component: StudentEditComponent, canActivate: [AuthGuard] }
 ];

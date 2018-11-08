@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
+    localStorage.clear();
   }
 
   public async login(username, password): Promise<void> {

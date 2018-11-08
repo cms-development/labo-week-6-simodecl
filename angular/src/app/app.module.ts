@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { StudentEditComponent } from './components/student-edit/student-edit.component';
+import { StudentCreateComponent } from './components/student-create/student-create.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { StudentEditComponent } from './components/student-edit/student-edit.com
     StudentDetailComponent,
     HomeComponent,
     StudentEditComponent,
+    StudentCreateComponent,
   ],
   imports: [
     BrowserModule,
