@@ -1,3 +1,20 @@
-<p>
-  student-detail works!
-</p>
+<div class="row" *ngIf="student">
+  <div class="col s12 m6 offset-m3">
+    <div class="card red lighten-3">
+      <div class="card-content white-text">
+        <span class="card-title">{{student.attributes.name}}</span>
+        <ul class="courses" *ngIf="courses">
+            <div class="bold">Courses:</div>
+            <li *ngFor="let course of courses">
+                {{course.attributes.name}}
+            </li>
+          </ul>
+      </div>
+      <div class="card-action">
+        <a class="white-text" href="#">This is a link</a>
+        <a class="white-text" href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+</div>
+

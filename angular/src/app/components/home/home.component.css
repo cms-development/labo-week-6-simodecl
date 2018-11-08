@@ -1,0 +1,11 @@
+.login {
+  color: #fff;
+  border-radius: 15px;
+  width: 300px;
+  margin: 200px auto;
+  padding: 20px;
+}
+.login form {
+  width: 250px;
+  margin: 0 auto;
+}
