@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { CourseService } from './../../services/course.service';
 import { JsonObject } from './../../models/json-object';
 import { Component, OnInit } from '@angular/core';
-import { Course, Attributes, Relationships, FieldStudentsData, FieldStudent, FieldInstructorData, FieldInstructor } from './../../models/course';
+import { Course, Attributes, Relationships, FieldStudentsData, FieldInstructorData, FieldInstructor } from './../../models/course';
 import axios from 'axios';
 
 @Component({
