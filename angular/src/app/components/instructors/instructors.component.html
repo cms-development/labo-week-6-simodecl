@@ -1,3 +1,16 @@
-<p>
-  instructors works!
-</p>
+<div class="main">
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Instructors</h4></li>
+    <li class="collection-item" *ngFor="let instructor of instructors">
+      <div>
+          {{instructor.attributes.name}}
+          <a class="secondary-content" routerLink="/instructors/{{instructor.id}}">
+              <i class="material-icons red-text">send</i>
+          </a>
+      </div>
+    </li>
+  </ul>
+  <a class="createInstructor btn red lighten-2 waves-effect waves-light" routerLink="/instructors/create">
+    Create new instructor
+  </a>
+</div>

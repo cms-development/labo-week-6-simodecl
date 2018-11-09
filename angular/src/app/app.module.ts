@@ -1,9 +1,7 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './components/courses/courses.component';
@@ -18,6 +16,12 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { StudentEditComponent } from './components/student-edit/student-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { StudentDeleteComponent } from './components/student-delete/student-delete.component';
+import { CourseEditComponent } from './components/course-edit/course-edit.component';
+import { CourseCreateComponent } from './components/course-create/course-create.component';
+import { CourseDeleteComponent } from './components/course-delete/course-delete.component';
+import { InstructorDeleteComponent } from './components/instructor-delete/instructor-delete.component';
+import { InstructorCreateComponent } from './components/instructor-create/instructor-create.component';
+import { InstructorEditComponent } from './components/instructor-edit/instructor-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +36,18 @@ import { StudentDeleteComponent } from './components/student-delete/student-dele
     StudentEditComponent,
     StudentCreateComponent,
     StudentDeleteComponent,
+    CourseEditComponent,
+    CourseCreateComponent,
+    CourseDeleteComponent,
+    InstructorDeleteComponent,
+    InstructorCreateComponent,
+    InstructorEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuardService

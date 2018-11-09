@@ -11,6 +11,12 @@
             <label class="white-text active" for="field_first_name_student">First name</label>
           </div>
         </div>
+        <p class="course" *ngFor="let ch of checkboxes">
+          <label>
+            <input [(ngModel)]="ch.selected" type="checkbox" value="{{ch.value}}" id="{{ch.value}}"/>
+            <span class="white-text">{{ch.name}}</span>
+          </label>
+        </p>
         <div class="card-action">
           <button class="btn red lighten-2 white-text waves-effect waves-light" (click)="postStudent(name,firstname)">Update</button>
         </div>
