@@ -39,9 +39,7 @@ export class StudentCreateComponent implements OnInit {
   }
 
   public async postStudent(name, firstname): Promise<void> {
-
     try {
-
       // Checkboxes
       const selectedIds = this.checkboxes.filter((ch) => ch.selected).map((ch) =>  ch.value);
       selectedIds.forEach(course => {
@@ -72,9 +70,7 @@ export class StudentCreateComponent implements OnInit {
   }
 
   public async getCourses(): Promise<void> {
-
     try {
-
         const jsonResponse = await this.courseService.getCourses<JsonObject>();
         this.courses = jsonResponse.data;
         console.log(this.courses);
@@ -85,11 +81,8 @@ export class StudentCreateComponent implements OnInit {
             selected: false
           });
         });
-
     } catch ( error ) {
-
         console.error( error );
-
     }
   }
 }

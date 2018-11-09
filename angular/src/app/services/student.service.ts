@@ -39,7 +39,7 @@ export class StudentService {
     try {
         const axiosResponse = await axios.request<T>({
             method: 'patch',
-            url: `${this.studentsURL}/${id}?include=field_courses`,
+            url: `${this.studentsURL}/${id}`,
             data: body
         });
         return( axiosResponse.data );

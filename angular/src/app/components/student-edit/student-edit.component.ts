@@ -1,8 +1,9 @@
+import { CourseService } from './../../services/course.service';
 import { Course } from './../../models/course';
 import { JsonObject } from './../../models/json-object';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from './../../services/student.service';
-import { Student } from './../../models/student';
+import { Student, FieldCoursesData, Relationships, Attributes } from './../../models/student';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 
@@ -14,13 +15,21 @@ import axios from 'axios';
 export class StudentEditComponent implements OnInit {
   student: Student;
   courses: Course[];
-  id: string;
+  checkboxes = [];
+  selectedCourses = [];
+  id = this.route.snapshot.paramMap.get('id');
 
-  constructor(private studentService: StudentService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private studentService: StudentService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private courseService: CourseService
+    ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getStudent();
+    this.getCourses();
 
     axios.interceptors.request.use(function(config) {
       const token = localStorage.getItem('access_token');
@@ -36,8 +45,7 @@ export class StudentEditComponent implements OnInit {
   public async getStudent(): Promise<void> {
 
     try {
-      const id = this.route.snapshot.paramMap.get('id');
-      const jsonResponse = await this.studentService.getStudent<JsonObject>(id);
+      const jsonResponse = await this.studentService.getStudent<JsonObject>(this.id);
       this.student = jsonResponse.data;
       jsonResponse.included ? this.courses = jsonResponse.included : console.log('No courses found');
       console.log(jsonResponse);
@@ -46,16 +54,53 @@ export class StudentEditComponent implements OnInit {
     }
   }
 
-  public async patchStudent(): Promise<void> {
+  public async patchStudent(name, firstname): Promise<void> {
 
     try {
+      // Checkboxes
+      const selectedIds = this.checkboxes.filter((ch) => ch.selected).map((ch) =>  ch.value);
+      selectedIds.forEach(course => {
+        this.selectedCourses.push({
+          type: 'course--course',
+          id: course
+        });
+      });
+      console.log(this.selectedCourses);
+
+      // Data for request
       const patchObject = new JsonObject;
+      this.student = new Student;
+      this.student.id = this.id;
+      this.student.attributes = new Attributes;
+      this.student.attributes.name = name.value;
+      this.student.attributes.field_first_name_student = firstname.value;
+      this.student.relationships = new Relationships();
+      this.student.relationships.field_courses = new FieldCoursesData();
+      this.student.relationships.field_courses.data = this.selectedCourses;
       patchObject.data = this.student;
+      console.log(patchObject);
       const jsonResponse = await this.studentService.patchStudent<JsonObject>(this.id, patchObject);
       console.log(jsonResponse);
       this.router.navigate([`students/${this.student.id}`]);
     } catch ( error ) {
       console.error( error );
+    }
+  }
+
+  public async getCourses(): Promise<void> {
+    try {
+        const jsonResponse = await this.courseService.getCourses<JsonObject>();
+        this.courses = jsonResponse.data;
+        console.log(this.courses);
+        this.courses.forEach(course => {
+          this.checkboxes.push({
+            name: course.attributes.name,
+            value: course.id,
+            selected: false
+          });
+        });
+    } catch ( error ) {
+        console.error( error );
     }
   }
 }
