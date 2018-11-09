@@ -1,3 +1,16 @@
-<p>
-  instructor-detail works!
-</p>
+<div class="row" *ngIf="instructor">
+    <div class="col s12 m6 offset-m3">
+      <div class="card red lighten-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{instructor.attributes.name}}</span>
+          <div>First name: {{instructor.attributes.field_first_name}}</div>
+          <div>Rank: {{instructor.attributes.field_academic_rank}}</div>
+          <div>Title: {{instructor.attributes.field_academic_title}}</div>
+        </div>
+        <div class="card-action">
+          <button class="btn red lighten-2 white-text waves-effect waves-light" (click)="goEdit()">Edit</button>
+          <button class="btn red lighten-1 white-text waves-effect waves-light" (click)="goDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

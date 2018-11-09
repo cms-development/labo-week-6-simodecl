@@ -1,5 +1,5 @@
 export class Instructor {
-  id: number;
+  id: string;
   type = 'instructor--instructor';
   attributes: Attributes;
 }

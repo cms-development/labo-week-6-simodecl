@@ -1,5 +1,5 @@
 export class Course {
-  id: number;
+  id: string;
   type = 'course--course';
   attributes: Attributes;
 }
