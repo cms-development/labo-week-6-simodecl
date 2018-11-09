@@ -1,3 +1,21 @@
-<p>
-  course-detail works!
-</p>
+<div class="row" *ngIf="course">
+    <div class="col s12 m6 offset-m3">
+      <div class="card red lighten-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{course.attributes.name}}</span>
+          <div class="bold">Instructor:</div>
+          <div>{{instructor.attributes.name}}</div>
+          <ul class="students" *ngIf="students">
+            <div class="bold">Students:</div>
+            <li *ngFor="let student of students">
+                {{student.attributes.name}}
+            </li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <button class="btn red lighten-2 white-text waves-effect waves-light" (click)="goEdit()">Edit</button>
+          <button class="btn red lighten-1 white-text waves-effect waves-light" (click)="goDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
